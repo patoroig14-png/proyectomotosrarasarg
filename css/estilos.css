@@ -1,0 +1,152 @@
+
+body {
+    background-color: #f2e8d5;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(166, 61, 47, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(107, 66, 38, 0.15) 0%, transparent 50%);
+    color: #3a2e1f;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Cabecera */
+header {
+    background-color: #6b4226;
+    color: #f2e8d5;
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 5px solid #a63d2f;
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.2em;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+header p {
+    margin: 10px 0 0 0;
+    font-style: italic;
+    color: #d9c7a3;
+}
+
+/* Contenido principal */
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+main h2 {
+    color: #6b4226;
+    border-bottom: 2px solid #a63d2f;
+    padding-bottom: 8px;
+}
+
+/* Links */
+a {
+    color: #a63d2f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Listas */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #e8dcc0;
+    margin-bottom: 10px;
+    padding: 12px 16px;
+    border-left: 4px solid #a63d2f;
+    transition: all 0.2s ease;
+}
+
+li:hover {
+    background-color: #d9c7a3;
+    border-left-width: 8px;
+    transform: translateX(4px);
+}
+
+/* Secciones (usadas en las fichas) */
+section {
+    margin-bottom: 30px;
+}
+/* Ajustes para pantallas chicas (celulares) */
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 1.8em;
+        letter-spacing: 1px;
+    }
+
+    header p {
+        font-size: 0.9em;
+    }
+
+    main {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    main h2 {
+        font-size: 1.3em;
+    }
+
+    li {
+        padding: 10px 12px;
+        font-size: 0.95em;
+    }
+
+}
+
+/* Foto principal de cada ficha */
+.foto-principal {
+    max-width: 550px;
+    margin: 30px auto 0 auto;
+    padding: 0 20px;
+}
+
+.foto-principal img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 3px solid #6b4226;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}/* Layout de 3 columnas con espacio para banners */
+.layout {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.banner-lateral {
+    width: 160px;
+    flex-shrink: 0;
+}
+
+/* Ocultar banners laterales en pantallas chicas */
+@media (max-width: 900px) {
+    .banner-lateral {
+        display: none;
+    }
+}/* Sección de descarga de manuales */
+.descarga-manual {
+    background-color: #e8dcc0;
+    border: 2px dashed #a63d2f;
+    padding: 20px;
+    text-align: center;
+    margin-top: 30px;
+}
