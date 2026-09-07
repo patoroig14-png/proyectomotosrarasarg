@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error en el pago - Motos Raras Arg</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        .contenedor-mensaje {
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 40px;
+            background-color: #fef5f5;
+            border-radius: 12px;
+            border-left: 5px solid #a63d2f;
+            text-align: center;
+        }
+        
+        .contenedor-mensaje h1 {
+            color: #a63d2f;
+            font-size: 2.2em;
+            margin: 0 0 20px 0;
+        }
+        
+        .contenedor-mensaje p {
+            color: #8a5a4f;
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        
+        .boton-volver {
+            display: inline-block;
+            margin-top: 30px;
+            background-color: #a63d2f;
+            color: white !important;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none !important;
+            font-weight: 600;
+            transition: background-color 0.18s ease;
+        }
+        
+        .boton-volver:hover {
+            background-color: #8a3226;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Motos Raras Arg</h1>
+        <p>Enciclopedia de motos poco comunes y difíciles de conseguir en Argentina</p>
+    </header>
+
+    <main>
+        <div class="contenedor-mensaje">
+            <h1>✗ Error en el pago</h1>
+            <p>Lamentablemente, tu pago no pudo ser procesado.</p>
+            <p>Esto puede ocurrir por varios motivos:</p>
+            <ul style="text-align: left; display: inline-block; color: #8a5a4f;">
+                <li>Saldo insuficiente en tu cuenta</li>
+                <li>Datos de tarjeta incorrectos</li>
+                <li>Problemas temporales con tu banco</li>
+            </ul>
+            <p style="margin-top: 20px;">Por favor, intenta nuevamente o usa otro método de pago.</p>
+            <a href="index.html" class="boton-volver">Volver e intentar de nuevo</a>
+        </div>
+    </main>
+
+</body>
+</html>

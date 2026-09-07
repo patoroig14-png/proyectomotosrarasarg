@@ -16,17 +16,87 @@
         <p>Enciclopedia de motos poco comunes y difíciles de conseguir en Argentina</p>
     </header>
 
-    <main>
-        <h2>Fichas técnicas</h2>
-        <ul>
-            <li><a href="fichas/kymco-pleasure-125.html">Kymco Pleasure 125</a></li>
-            <li><a href="fichas/daelim-liberty-50.html">Daelim Liberty 50</a></li>
-        </ul>
-    </main>
-    <section class="descarga-manual">
-    <h2>Manuales de despiece</h2>
-    <p>Próximamente vas a poder descargar manuales técnicos y de despiece de las motos de este sitio.</p>
-</section>
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h2>Descubre máquinas que marcaron época</h2>
+            <p>Fichas técnicas completas y manuales de despiece para motos clásicas y raras</p>
+            <a href="#fichas" class="boton-hero">Explorar fichas técnicas</a>
+        </div>
+    </section>
 
+    <main>
+        <!-- Descripción del sitio -->
+        <section class="descripcion-sitio">
+            <h2>¿Qué es Motos Raras Arg?</h2>
+            <p>
+                Somos una enciclopedia digital dedicada a documentar motos poco comunes y difíciles de conseguir en Argentina. 
+                Nuestro objetivo es preservar y compartir información técnica detallada sobre modelos que marcaron época pero 
+                que hoy son rareza en las calles.
+            </p>
+            <p>
+                Aquí encontrarás fichas técnicas completas, especificaciones de motor, suspensión, pesos, dimensiones y más. 
+                Además, ofrecemos manuales de despiece para que puedas mantener y reparar estas máquinas legendarias.
+            </p>
+            <p>
+                Si sos un coleccionista, mecánico apasionado o simplemente amante de las motos clásicas, este es tu lugar.
+            </p>
+        </section>
+
+        <!-- Motos Destacadas -->
+        <section class="motos-destacadas">
+            <h2>Motos destacadas</h2>
+            <div class="grid-destacadas" id="grid-destacadas">
+                <!-- Se va a llenar con JavaScript -->
+            </div>
+        </section>
+
+        <!-- Fichas Técnicas -->
+        <section id="fichas">
+            <h2>Fichas técnicas completas</h2>
+            <ul id="lista-motos" class="lista-motos-completa">
+                <!-- Acá JavaScript va a insertar la lista de motos automáticamente -->
+            </ul>
+        </section>
+
+        <!-- Manuales de Despiece -->
+<section class="descarga-manual">
+    <h2>Manuales de despiece</h2>
+    <p class="subtitulo-manual">Documentación técnica original para reparación y mantenimiento</p>
+    <p>Descargá manuales técnicos completos de despiece para cada moto. Acceso inmediato después del pago.</p>
+    <div id="manuales-disponibles"></div>
+</section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Motos Raras Arg</h3>
+                <p>Enciclopedia de motos poco comunes en Argentina</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="#fichas">Fichas técnicas</a></li>
+                    <li><a href="#manuales">Manuales</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Información</h3>
+                <p>Sitio dedicado a preservar la historia de motos raras en Argentina.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Motos Raras Arg. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script src="js/motos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/destacadas.js"></script>
+    <script src="js/mercadopago.js"></script>
+    <script src="js/listar-manuales.js"></script>
 </body>
 </html>
