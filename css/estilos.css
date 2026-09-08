@@ -246,6 +246,26 @@ a {
     font-weight: 600;
 }
 
+/* ===== Portada de fichas tecnicas ===== */
+.foto-principal {
+    max-width: 860px;
+    margin: 28px auto 36px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.foto-principal img {
+    display: block;
+    width: 100%;
+    max-width: 620px;
+    height: 320px;
+    margin: 0 auto;
+    border-radius: 10px;
+    object-fit: contain;
+    background-color: var(--blanco-calido);
+    box-shadow: 0 3px 12px rgba(58, 46, 31, 0.1);
+}
+
 /* ===== Sección de descripción ===== */
 .descripcion-sitio {
     background: linear-gradient(135deg, var(--beige-claro) 0%, var(--blanco-calido) 100%);
@@ -662,6 +682,15 @@ footer {
     main {
         margin: 30px auto;
         padding: 0 15px;
+    }
+
+    .foto-principal {
+        margin: 20px auto 28px;
+        padding: 0 15px;
+    }
+
+    .foto-principal img {
+        height: 220px;
     }
 
     main h2 {
