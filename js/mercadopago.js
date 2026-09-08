@@ -1,43 +1,50 @@
-require("dotenv").config();
-const express = require("express");
-const app = express();
-const PUERTO = 3000;
+// ============================================================
+// MERCADO PAGO - FRONTEND
+// Las credenciales viven en el backend (backend/.env)
+// Este archivo solo conecta el botón con el backend
+// ============================================================
 
-app.use(express.json());
-
-// Endpoint para crear un link de pago
-app.post("/crear-pago", async function(req, res) {
-    const moto = req.body;
-
+async function crearLinkPago(moto) {
     try {
-        const respuesta = await fetch("https://api.mercadopago.com/checkout/preferences", {
+        const respuesta = await fetch("http://localhost:3000/crear-pago", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + process.env.MP_ACCESS_TOKEN
-            },
-            body: JSON.stringify({
-                items: [
-                    {
-                        title: moto.manual.titulo,
-                        quantity: 1,
-                        unit_price: moto.manual.precio,
-                        currency_id: "ARS"
-                    }
-                ],
-                external_reference: moto.id
-            })
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(moto)
         });
 
         const data = await respuesta.json();
-        res.json({ linkPago: data.init_point });
+        return data.linkPago;
 
     } catch (error) {
-        console.error("Error creando el pago:", error);
-        res.status(500).json({ error: "No se pudo crear el link de pago" });
+        console.error("Error conectando con el backend:", error);
+        return null;
     }
-});
+}
 
-app.listen(PUERTO, function() {
-    console.log("Servidor corriendo en http://localhost:" + PUERTO);
-});
+function mostrarBotonCompra(moto, contenedor) {
+    const boton = document.createElement("a");
+    boton.className = "boton-comprar-manual";
+    boton.textContent = `Comprar manual - $${moto.manual.precio}`;
+    boton.href = "#";
+
+    boton.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const textoOriginal = boton.textContent;
+        boton.textContent = "Preparando pago...";
+        boton.style.opacity = "0.5";
+        boton.style.pointerEvents = "none";
+
+        const linkPago = await crearLinkPago(moto);
+
+        if (linkPago) {
+            window.location.href = linkPago;
+        } else {
+            alert("Error al procesar el pago. Por favor, intenta más tarde.");
+            boton.textContent = textoOriginal;
+            boton.style.opacity = "1";
+            boton.style.pointerEvents = "auto";
+        }
+    });
+
+    contenedor.appendChild(boton);
+}
