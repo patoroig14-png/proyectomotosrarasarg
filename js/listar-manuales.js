@@ -1,10 +1,40 @@
-// Esperar a que el DOM esté listo
+const manualesAdicionales = [
+    {
+        id: "en125",
+        manual: {
+            titulo: "Manual de servicio - Suzuki EN125",
+            precio: 500,
+            archivo: "manuales/EN125-YES.pdf"
+        }
+    },
+    {
+        id: "suzuki-ax-100",
+        manual: {
+            titulo: "Manual de reparacion - Suzuki AX 100",
+            precio: 500,
+            archivo: "manuales/suzuki-ax-100-manual-de-reparacion.pdf"
+        }
+    },
+    {
+        id: "yamaha-sr-250",
+        manual: {
+            titulo: "Manual de despiece - Yamaha SR 250 Special",
+            precio: 500,
+            archivo: "manuales/yamahasr250special-manualdedespiece.pdf"
+        }
+    },
+];
+
+// Esperar a que el DOM este listo
 document.addEventListener("DOMContentLoaded", function() {
     const contenedorManuales = document.getElementById("manuales-disponibles");
 
     if (contenedorManuales) {
-        motos.forEach(function(moto) {
-            if (moto.manual) {
+        const manuales = motos.filter(function(moto) {
+            return moto.manual;
+        }).concat(manualesAdicionales);
+
+        manuales.forEach(function(moto) {
                 const div = document.createElement("div");
                 div.className = "manual-item";
                 div.id = "manual-" + moto.id;
@@ -13,7 +43,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 infoDiv.className = "manual-info";
                 
                 const titulo = document.createElement("h3");
-                titulo.textContent = moto.manual.titulo;
+                const enlaceFicha = document.createElement("a");
+                enlaceFicha.href = "fichas/ficha.html?id=" + moto.id;
+                enlaceFicha.textContent = moto.manual.titulo;
+                titulo.appendChild(enlaceFicha);
                 
                 const precio = document.createElement("p");
                 precio.className = "precio-manual";
@@ -26,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 mostrarBotonCompra(moto, div);
                 contenedorManuales.appendChild(div);
-            }
         });
     }
 });

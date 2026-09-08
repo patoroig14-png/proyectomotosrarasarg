@@ -17,8 +17,12 @@ if (!moto) {
     document.getElementById("nombre-moto").textContent = moto.nombre;
 
     const foto = document.getElementById("foto-moto");
-    foto.src = "../img/" + moto.foto;
-    foto.alt = moto.nombre;
+    if (moto.foto) {
+        foto.src = "../img/" + moto.foto;
+        foto.alt = moto.nombre;
+    } else {
+        foto.hidden = true;
+    }
 
     const contenedor = document.getElementById("contenido-ficha");
 

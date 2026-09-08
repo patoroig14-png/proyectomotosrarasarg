@@ -143,7 +143,7 @@ const motos = [
         manual: {
             titulo: "Manual de Despiece - Kymco Quannon 125",
             precio: 500,
-            archivo: "manuales/kymco-quannon-125.pdf"
+            archivo: "manuales/QUANNON 125.pdf"
         },
         datos: {
             "Motor y mecánica": {
@@ -184,9 +184,9 @@ const motos = [
         foto: "daelim-roadwin-250.jpg",
         nota: "Ficha técnica completa disponible",
         manual: {
-            titulo: "Manual del Propietario - Daelim Roadwin 250",
+            titulo: "Ficha técnica - Daelim Roadwin 250",
             precio: 500,
-            archivo: "manuales/daelim-roadwin-250.pdf"
+            archivo: "manuales/f9661b.pdf"
         },
         datos: {
             "Motor y mecánica": {
@@ -219,5 +219,80 @@ const motos = [
                 "Carga máxima": "30 kg (equipaje)"
             }
         }
-    }
+    },
+    {
+        id: "en125",
+        nombre: "Suzuki EN125",
+        foto: "suzuki-en-125.jpg",
+        manual: {
+            titulo: "Manual de servicio - Suzuki EN125",
+            precio: 500,
+            archivo: "manuales/EN125-YES.pdf"
+        },
+        datos: {
+            "Motor y mecanica": {
+                "Tipo de motor": "Monocilindrico 4 tiempos, SOHC, refrigerado por aire",
+                "Cilindrada": "124 cc",
+                "Alimentacion": "Carburador",
+                "Arranque": "Electrico y a patada",
+                "Transmision": "5 velocidades"
+            },
+            "Suspension y frenos": {
+                "Suspension delantera": "Horquilla telescopica",
+                "Suspension trasera": "Doble amortiguador",
+                "Freno delantero": "Disco",
+                "Freno trasero": "Tambor"
+            }
+        }
+    },
+    {
+        id: "suzuki-ax-100",
+        nombre: "Suzuki AX 100",
+        foto: "suzuki-ax-100.jpg",
+        manual: {
+            titulo: "Manual de reparacion - Suzuki AX 100",
+            precio: 500,
+            archivo: "manuales/suzuki-ax-100-manual-de-reparacion.pdf"
+        },
+        datos: {
+            "Motor y mecanica": {
+                "Tipo de motor": "Monocilindrico 2 tiempos, refrigerado por aire",
+                "Cilindrada": "98 cc",
+                "Alimentacion": "Carburador",
+                "Arranque": "A patada",
+                "Transmision": "4 velocidades"
+            },
+            "Suspension y frenos": {
+                "Suspension delantera": "Horquilla telescopica",
+                "Suspension trasera": "Doble amortiguador",
+                "Freno delantero": "Tambor",
+                "Freno trasero": "Tambor"
+            }
+        }
+    },
+    {
+        id: "yamaha-sr-250",
+        nombre: "Yamaha SR 250 Special",
+        foto: "yamaha-sr-250-special.jpg",
+        manual: {
+            titulo: "Manual de despiece - Yamaha SR 250 Special",
+            precio: 500,
+            archivo: "manuales/yamahasr250special-manualdedespiece.pdf"
+        },
+        datos: {
+            "Motor y mecanica": {
+                "Tipo de motor": "Monocilindrico 4 tiempos, SOHC, refrigerado por aire",
+                "Cilindrada": "249 cc",
+                "Alimentacion": "Carburador",
+                "Arranque": "A patada",
+                "Transmision": "5 velocidades"
+            },
+            "Suspension y frenos": {
+                "Suspension delantera": "Horquilla telescopica",
+                "Suspension trasera": "Doble amortiguador",
+                "Freno delantero": "Disco",
+                "Freno trasero": "Tambor"
+            }
+        }
+    },
 ];

@@ -1,6 +1,6 @@
 const listaMotos = document.getElementById("lista-motos");
 const botonMostrarMotos = document.getElementById("boton-mostrar-motos");
-const cantidadInicial = 4;
+const cantidadInicial = 3;
 let listaExpandida = false;
 
 function crearElementoMoto(moto, indice) {
