@@ -25,7 +25,31 @@
         </div>
     </section>
 
-    <main>
+    <section class="apoyo-cafecito apoyo-cafecito-superior">
+        <div class="icono-cafecito" aria-hidden="true">☕</div>
+        <div class="apoyo-cafecito-texto">
+            <p class="apoyo-etiqueta">Ayudá a mantener vivo el proyecto</p>
+            <h2>¿Me invitás un Cafecito?</h2>
+            <p>Tu aporte ayuda a seguir documentando motos raras de Argentina.</p>
+        </div>
+        <a class="boton-cafecito" href="https://cafecito.app/motosrarasarg" target="_blank" rel="noopener">
+            Invitar un Cafecito
+        </a>
+    </section>
+
+    <div class="banner-publicidad banner-publicidad-superior" aria-label="Espacio publicitario">
+        <span>
+            <strong>¿Querés publicitar tu negocio aquí?</strong>
+            <small>Este espacio puede ser para talleres, repuesteras y servicios relacionados con motos.</small>
+        </span>
+    </div>
+
+    <div class="contenido-con-publicidad">
+        <aside class="banner-publicidad banner-publicidad-lateral" aria-label="Espacio publicitario">
+            <span>Publicidad</span>
+        </aside>
+
+        <main>
         <!-- Descripción del sitio -->
         <section class="descripcion-sitio">
             <h2>¿Qué es Motos Raras Arg?</h2>
@@ -57,16 +81,25 @@
             <ul id="lista-motos" class="lista-motos-completa">
                 <!-- Acá JavaScript va a insertar la lista de motos automáticamente -->
             </ul>
+            <button id="boton-mostrar-motos" class="boton-mostrar-motos" type="button" hidden>
+                Mostrar más motos
+            </button>
         </section>
 
         <!-- Manuales de Despiece -->
-<section class="descarga-manual">
+<section id="manuales" class="descarga-manual">
     <h2>Manuales de despiece</h2>
     <p class="subtitulo-manual">Documentación técnica original para reparación y mantenimiento</p>
     <p>Descargá manuales técnicos completos de despiece para cada moto. Acceso inmediato después del pago.</p>
     <div id="manuales-disponibles"></div>
 </section>
-    </main>
+
+        </main>
+
+        <aside class="banner-publicidad banner-publicidad-lateral" aria-label="Espacio publicitario">
+            <span>Publicidad</span>
+        </aside>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">

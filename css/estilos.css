@@ -46,16 +46,20 @@ header::after {
 header h1 {
     margin: 0;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.4em;
-    letter-spacing: 3px;
+    font-size: 4.8em;
+    line-height: 0.95;
+    letter-spacing: 5px;
     text-transform: uppercase;
+    text-shadow: 0 3px 0 rgba(58, 46, 31, 0.22);
 }
 
 header p {
-    margin: 12px 0 0 0;
-    font-size: 1.05em;
+    max-width: 620px;
+    margin: 22px auto 0;
+    font-size: 0.9em;
     color: var(--beige-claro);
     font-weight: 300;
+    letter-spacing: 0.3px;
 }
 
 /* ===== Hero Banner ===== */
@@ -125,6 +129,75 @@ main {
     max-width: 860px;
     margin: 50px auto;
     padding: 0 20px;
+}
+
+/* ===== Espacios publicitarios ===== */
+.banner-publicidad {
+    color: rgba(58, 46, 31, 0.58);
+    font-size: 0.72em;
+    letter-spacing: 1.5px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.banner-publicidad span {
+    display: block;
+    border: 1px dashed rgba(107, 66, 38, 0.35);
+    background-color: rgba(253, 250, 243, 0.48);
+}
+
+.banner-publicidad-superior {
+    max-width: 970px;
+    margin: 22px auto 0;
+    padding: 0 20px;
+}
+
+.banner-publicidad-superior span {
+    min-height: 90px;
+    padding: 22px 20px;
+}
+
+.banner-publicidad-superior strong,
+.banner-publicidad-superior small {
+    display: block;
+}
+
+.banner-publicidad-superior strong {
+    color: var(--marron);
+    font-size: 1.2em;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.banner-publicidad-superior small {
+    margin-top: 6px;
+    font-size: 0.9em;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.contenido-con-publicidad {
+    display: grid;
+    grid-template-columns: minmax(120px, 1fr) minmax(0, 860px) minmax(120px, 1fr);
+    align-items: start;
+    gap: 22px;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.contenido-con-publicidad main {
+    width: 100%;
+}
+
+.banner-publicidad-lateral {
+    position: sticky;
+    top: 20px;
+    padding-top: 50px;
+}
+
+.banner-publicidad-lateral span {
+    min-height: 280px;
+    padding: 125px 10px;
 }
 
 main h2 {
@@ -318,6 +391,26 @@ a {
     transform: translateX(4px);
 }
 
+.boton-mostrar-motos {
+    display: block;
+    margin: 22px auto 0;
+    padding: 11px 22px;
+    border: 1px solid var(--rojo-oxido);
+    border-radius: 6px;
+    background-color: transparent;
+    color: var(--rojo-oxido);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.boton-mostrar-motos:hover {
+    background-color: var(--rojo-oxido);
+    color: var(--blanco-calido);
+}
+
 /* ===== Secciones generales ===== */
 section {
     margin-bottom: 34px;
@@ -429,12 +522,15 @@ section li strong {
 .boton-comprar-manual {
     background-color: var(--rojo-oxido);
     color: var(--blanco-calido) !important;
+    border: 0;
     padding: 10px 20px;
     border-radius: 8px;
     font-weight: 600;
     white-space: nowrap;
     transition: background-color 0.18s ease, transform 0.18s ease;
     display: inline-block;
+    cursor: pointer;
+    font-family: inherit;
 }
 
 .boton-comprar-manual:hover {
@@ -514,12 +610,13 @@ footer {
     }
 
     header h1 {
-        font-size: 2em;
-        letter-spacing: 1.5px;
+        font-size: 2.8em;
+        letter-spacing: 2px;
     }
 
     header p {
-        font-size: 0.9em;
+        margin-top: 16px;
+        font-size: 0.82em;
     }
 
     .hero-banner {
@@ -632,6 +729,72 @@ footer {
     box-shadow: 0 4px 12px rgba(58, 46, 31, 0.15);
 }
 
+.apoyo-cafecito {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background-color: var(--marron-oscuro);
+    color: var(--beige);
+    border-left: 5px solid var(--rojo-oxido);
+}
+
+.apoyo-cafecito-superior {
+    max-width: 920px;
+    margin: 22px auto 0;
+    padding: 16px 24px;
+}
+
+.icono-cafecito {
+    flex: 0 0 auto;
+    font-size: 2.4em;
+    line-height: 1;
+}
+
+.apoyo-cafecito-texto {
+    flex: 1;
+}
+
+.apoyo-cafecito h2 {
+    margin: 0 0 8px;
+    color: var(--beige);
+    font-size: 1.35em;
+}
+
+.apoyo-cafecito h2::before {
+    display: none;
+}
+
+.apoyo-cafecito p {
+    margin: 0;
+    color: var(--beige-claro);
+}
+
+.apoyo-cafecito .apoyo-etiqueta {
+    margin-bottom: 5px;
+    color: #f0b35b;
+    font-size: 0.78em;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+.boton-cafecito {
+    flex-shrink: 0;
+    background-color: #f0b35b;
+    color: var(--marron-oscuro) !important;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.boton-cafecito:hover {
+    background-color: #ffd28a;
+    transform: translateY(-2px);
+}
+
 .manual-item h3 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.4em;
@@ -656,3 +819,245 @@ footer {
     text-transform: uppercase;
 }
 }
+
+/* ===== Relato de la moto ===== */
+.historia-moto {
+    background: var(--blanco-calido);
+    border-left: 5px solid var(--rojo-oxido);
+    padding: 30px 34px 32px;
+    box-shadow: 0 3px 12px rgba(58, 46, 31, 0.08);
+}
+
+.historia-moto h2 {
+    display: block;
+    border-bottom: 1px solid var(--beige-claro);
+    padding-bottom: 14px;
+    margin: 0 0 22px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2em;
+    letter-spacing: 1px;
+    color: var(--marron-oscuro);
+}
+
+.historia-moto h2::before {
+    display: none;
+}
+
+.historia-etiqueta {
+    margin: 0 0 8px;
+    color: var(--rojo-oxido);
+    font-size: 0.78em;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.historia-moto p:not(.historia-etiqueta) {
+    max-width: 680px;
+    margin: 0 0 18px;
+    color: var(--marron);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.08em;
+    line-height: 1.85;
+}
+
+.historia-moto p:last-child {
+    margin-bottom: 0;
+}
+
+.manuales-ficha {
+    border-top: 3px double var(--rojo-oxido);
+}
+
+.botones-manuales-ficha {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.boton-manual-ficha {
+    display: inline-block;
+    background-color: var(--rojo-oxido);
+    color: var(--blanco-calido) !important;
+    padding: 11px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.boton-manual-ficha:hover {
+    background-color: #8a3226;
+    transform: translateY(-2px);
+}
+
+.boton-manual-ficha.manual-no-disponible {
+    background-color: var(--beige-claro);
+    color: rgba(58, 46, 31, 0.55) !important;
+    cursor: not-allowed;
+}
+
+.boton-manual-ficha.manual-no-disponible:hover {
+    background-color: var(--beige-claro);
+    transform: none;
+}
+
+@media (max-width: 600px) {
+    .historia-moto {
+        padding: 24px 20px 26px;
+    }
+
+    .historia-moto h2 {
+        font-size: 1.7em;
+    }
+
+    .historia-moto p:not(.historia-etiqueta) {
+        font-size: 1em;
+        line-height: 1.75;
+    }
+
+    .botones-manuales-ficha {
+        flex-direction: column;
+    }
+
+    .boton-manual-ficha {
+        text-align: center;
+    }
+
+    .apoyo-cafecito {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .apoyo-cafecito-superior {
+        margin: 16px 15px 0;
+        padding: 18px;
+        text-align: center;
+    }
+
+    .icono-cafecito {
+        font-size: 2em;
+    }
+
+    .boton-cafecito {
+        text-align: center;
+    }
+
+    .banner-publicidad-superior {
+        margin-top: 16px;
+        padding: 0 15px;
+    }
+
+    .banner-publicidad-superior span {
+        min-height: 70px;
+        padding: 16px 12px;
+    }
+
+    .contenido-con-publicidad {
+        display: block;
+    }
+
+    .banner-publicidad-lateral {
+        display: none;
+    }
+}
+
+    /* ===== Cafecito destacado ===== */
+    .apoyo-cafecito-superior {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        max-width: 920px;
+        margin: 20px auto 0;
+        padding: 14px 18px;
+        background: var(--marron-oscuro);
+        border: 1px solid rgba(242, 232, 213, 0.2);
+        border-left: 6px solid #f0b35b;
+        border-radius: 10px;
+        box-shadow: 0 5px 16px rgba(58, 46, 31, 0.16);
+    }
+
+    .apoyo-cafecito-superior .icono-cafecito {
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        flex: 0 0 48px;
+        border-radius: 50%;
+        background: #f0b35b;
+        color: var(--marron-oscuro);
+        font-size: 1.75em;
+        line-height: 1;
+    }
+
+    .apoyo-cafecito-superior .apoyo-cafecito-texto {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .apoyo-cafecito-superior h2 {
+        display: block;
+        margin: 0 0 2px;
+        padding: 0;
+        border: 0;
+        color: var(--beige);
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.55em;
+        letter-spacing: 1px;
+    }
+
+    .apoyo-cafecito-superior h2::before {
+        display: none;
+    }
+
+    .apoyo-cafecito-superior p {
+        margin: 0;
+        color: var(--beige-claro);
+        font-size: 0.88em;
+        line-height: 1.4;
+    }
+
+    .apoyo-cafecito-superior .apoyo-etiqueta {
+        margin-bottom: 1px;
+        color: #f0b35b;
+        font-size: 0.68em;
+        font-weight: 700;
+        letter-spacing: 1.1px;
+        text-transform: uppercase;
+    }
+
+    .apoyo-cafecito-superior .boton-cafecito {
+        display: inline-block;
+        flex: 0 0 auto;
+        padding: 10px 16px;
+        border-radius: 6px;
+        background: #f0b35b;
+        color: var(--marron-oscuro) !important;
+        font-size: 0.9em;
+        font-weight: 700;
+        text-decoration: none !important;
+        white-space: nowrap;
+    }
+
+    .apoyo-cafecito-superior .boton-cafecito:hover {
+        background: #ffd28a;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+        .apoyo-cafecito-superior {
+            align-items: stretch;
+            flex-direction: column;
+            margin: 16px 15px 0;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .apoyo-cafecito-superior .icono-cafecito {
+            align-self: center;
+        }
+
+        .apoyo-cafecito-superior .boton-cafecito {
+            text-align: center;
+        }
+    }

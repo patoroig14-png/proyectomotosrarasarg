@@ -1,10 +1,10 @@
-// Mostrar las primeras 3 motos como destacadas
+// Mostrar las cuatro motos agregadas más recientemente como destacadas
 document.addEventListener("DOMContentLoaded", function() {
     const gridDestacadas = document.getElementById("grid-destacadas");
     
     if (gridDestacadas && motos.length > 0) {
-        // Tomar las primeras 3 motos
-        const motosDestacadas = motos.slice(0, 3);
+        const cantidadDestacadas = 4;
+        const motosDestacadas = motos.slice(-cantidadDestacadas);
         
         motosDestacadas.forEach(function(moto) {
             const tarjeta = document.createElement("div");

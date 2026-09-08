@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (moto.manual) {
                 const div = document.createElement("div");
                 div.className = "manual-item";
+                div.id = "manual-" + moto.id;
                 
                 const infoDiv = document.createElement("div");
                 infoDiv.className = "manual-info";
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 const precio = document.createElement("p");
                 precio.className = "precio-manual";
-                precio.textContent = `$${moto.manual.precio} ARS`;
+                precio.textContent = `$${moto.manual.precio.toLocaleString("es-AR")} ARS`;
                 
                 infoDiv.appendChild(titulo);
                 infoDiv.appendChild(precio);
@@ -29,3 +30,14 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
+function mostrarBotonCompra(moto, contenedor) {
+    const boton = document.createElement("button");
+    boton.type = "button";
+    boton.className = "boton-comprar-manual";
+    boton.textContent = "Comprar manual";
+    boton.addEventListener("click", function() {
+        alert("La compra online estará disponible próximamente.");
+    });
+    contenedor.appendChild(boton);
+}
