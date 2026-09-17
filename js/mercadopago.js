@@ -48,3 +48,4 @@ function mostrarBotonCompra(moto, contenedor) {
 
     contenedor.appendChild(boton);
 }
+ 
