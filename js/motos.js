@@ -46,8 +46,7 @@ const motos = [
         foto: "daelim-liberty-50.jpg",
         manual: {
             titulo: "Manual de Despiece - Daelim Liberty 50",
-            precio: 25000,
-            archivo: "manuales/daelim-liberty-50.pdf"
+            precio: 25000
         },
         descripcion: [
             "La Daelim Liberty 50 es una moto clásica de la casa surcoreana Daelim. Fue un modelo vendido a nivel global por la marca, aunque con distintos nombres según el mercado. En Argentina fue comercializada directamente por Daelim durante la apertura importadora de los años 90.",
@@ -142,8 +141,7 @@ const motos = [
         foto: "kymco-quannon-125.jpg",
         manual: {
             titulo: "Manual de Despiece - Kymco Quannon 125",
-            precio: 500,
-            archivo: "manuales/QUANNON 125.pdf"
+            precio: 500
         },
         datos: {
             "Motor y mecánica": {
@@ -185,8 +183,7 @@ const motos = [
         nota: "Ficha técnica completa disponible",
         manual: {
             titulo: "Ficha técnica - Daelim Roadwin 250",
-            precio: 500,
-            archivo: "manuales/f9661b.pdf"
+            precio: 500
         },
         datos: {
             "Motor y mecánica": {
@@ -226,8 +223,7 @@ const motos = [
         foto: "suzuki-en-125.jpg",
         manual: {
             titulo: "Manual de servicio - Suzuki EN125",
-            precio: 500,
-            archivo: "manuales/EN125-YES.pdf"
+            precio: 500
         },
         datos: {
             "Motor y mecanica": {
@@ -251,8 +247,7 @@ const motos = [
         foto: "suzuki-ax-100.jpg",
         manual: {
             titulo: "Manual de reparacion - Suzuki AX 100",
-            precio: 500,
-            archivo: "manuales/suzuki-ax-100-manual-de-reparacion.pdf"
+            precio: 500
         },
         datos: {
             "Motor y mecanica": {
@@ -276,8 +271,7 @@ const motos = [
         foto: "yamaha-sr-250-special.jpg",
         manual: {
             titulo: "Manual de despiece - Yamaha SR 250 Special",
-            precio: 500,
-            archivo: "manuales/yamahasr250special-manualdedespiece.pdf"
+            precio: 500
         },
         datos: {
             "Motor y mecanica": {

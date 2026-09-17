@@ -5,7 +5,6 @@ Allow: /fichas/
 Allow: /css/
 Allow: /js/
 Allow: /img/
-Disallow: /manuales/
 
 Sitemap: https://tudominio.com/sitemap.xml
 

@@ -3,24 +3,21 @@ const manualesAdicionales = [
         id: "en125",
         manual: {
             titulo: "Manual de servicio - Suzuki EN125",
-            precio: 500,
-            archivo: "manuales/EN125-YES.pdf"
+            precio: 500
         }
     },
     {
         id: "suzuki-ax-100",
         manual: {
             titulo: "Manual de reparacion - Suzuki AX 100",
-            precio: 500,
-            archivo: "manuales/suzuki-ax-100-manual-de-reparacion.pdf"
+            precio: 500
         }
     },
     {
         id: "yamaha-sr-250",
         manual: {
             titulo: "Manual de despiece - Yamaha SR 250 Special",
-            precio: 500,
-            archivo: "manuales/yamahasr250special-manualdedespiece.pdf"
+            precio: 500
         }
     },
 ];

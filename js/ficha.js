@@ -73,44 +73,26 @@ if (!moto) {
         contenedor.appendChild(section);
     }
 
-    const manuales = document.createElement("section");
-    manuales.className = "manuales-ficha";
+    // Sección de manuales: solo mostramos el botón si hay manual a la venta.
+    // Ya no se linkea a ningún PDF público.
+    if (moto.manual) {
+        const manuales = document.createElement("section");
+        manuales.className = "manuales-ficha";
 
-    const tituloManuales = document.createElement("h2");
-    tituloManuales.textContent = "Manuales";
-    manuales.appendChild(tituloManuales);
+        const tituloManuales = document.createElement("h2");
+        tituloManuales.textContent = "Manuales";
+        manuales.appendChild(tituloManuales);
 
-    const botonesManuales = document.createElement("div");
-    botonesManuales.className = "botones-manuales-ficha";
+        const botonesManuales = document.createElement("div");
+        botonesManuales.className = "botones-manuales-ficha";
 
-    const manualUsuario = crearEnlaceManual("Manual de usuario", "../manuales/" + moto.id + "-usuario.pdf", false);
-    const manualDespiece = crearEnlaceManual(
-        moto.manual ? "Comprar manual" : "Manual de despiece",
-        moto.manual ? "../index.html#manual-" + moto.id : "../manuales/" + moto.id + "-despiece.pdf",
-        Boolean(moto.manual)
-    );
+        const botonComprar = document.createElement("a");
+        botonComprar.className = "boton-manual-ficha";
+        botonComprar.textContent = "Comprar manual";
+        botonComprar.href = "../index.html#manual-" + moto.id;
 
-    botonesManuales.appendChild(manualUsuario);
-    botonesManuales.appendChild(manualDespiece);
-    manuales.appendChild(botonesManuales);
-    contenedor.appendChild(manuales);
-}
-
-function crearEnlaceManual(texto, ruta, disponible) {
-    const enlace = document.createElement("a");
-    enlace.className = "boton-manual-ficha";
-    enlace.textContent = texto;
-
-    if (disponible) {
-        enlace.href = ruta;
-    } else {
-        enlace.classList.add("manual-no-disponible");
-        enlace.setAttribute("aria-disabled", "true");
-        enlace.title = "Este manual todavía no está disponible";
-        enlace.addEventListener("click", function(evento) {
-            evento.preventDefault();
-        });
+        botonesManuales.appendChild(botonComprar);
+        manuales.appendChild(botonesManuales);
+        contenedor.appendChild(manuales);
     }
-
-    return enlace;
 }
