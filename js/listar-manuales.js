@@ -59,14 +59,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
-
-function mostrarBotonCompra(moto, contenedor) {
-    const boton = document.createElement("button");
-    boton.type = "button";
-    boton.className = "boton-comprar-manual";
-    boton.textContent = "Comprar manual";
-    boton.addEventListener("click", function() {
-        alert("La compra online estará disponible próximamente.");
-    });
-    contenedor.appendChild(boton);
-}
