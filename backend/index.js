@@ -9,8 +9,22 @@ const catalogo = require("./catalogo");
 
 const app = express();
 const PUERTO = process.env.PUERTO || 3000;
+const SITIO_URL = (process.env.FRONTEND_URL || "https://patoroig14-png.github.io/proyectomotosrarasarg").replace(/\/$/, "");
+const origenesPermitidos = [
+    "https://patoroig14-png.github.io",
+    "http://localhost:5500",
+    "http://127.0.0.1:5500"
+];
 
-app.use(cors());
+app.use(cors({
+    origin: function(origen, callback) {
+        if (!origen || origenesPermitidos.includes(origen)) {
+            return callback(null, true);
+        }
+
+        callback(new Error("Origen no permitido"));
+    }
+}));
 app.use(express.json());
 
 // Cliente de Mercado Pago
@@ -28,6 +42,7 @@ const supabase = createClient(
 // En producción real esto debería ir en una base de datos
 const ordenes = {};
 const tokens = {};
+const pagosProcesados = new Set();
 
 // Configuración del email
 const transporter = nodemailer.createTransport({
@@ -69,9 +84,9 @@ app.post("/crear-pago", async function(req, res) {
                 ],
                 external_reference: productId + "|" + orderId,
                 back_urls: {
-                    success: "https://patoroig14-png.github.io/proyectomotosrarasarg/",
-                    pending: "https://patoroig14-png.github.io/proyectomotosrarasarg/",
-                    failure: "https://patoroig14-png.github.io/proyectomotosrarasarg/"
+                    success: SITIO_URL + "/exito.html",
+                    pending: SITIO_URL + "/pendiente.html",
+                    failure: SITIO_URL + "/error.html"
                 },
                 notification_url: "https://backend-misty-sky-5888.fly.dev/webhooks/mercadopago"
             }
@@ -97,21 +112,27 @@ app.post("/webhooks/mercadopago", async function(req, res) {
             if (pago.status === "approved" && pago.external_reference) {
                 const [productId, orderId] = pago.external_reference.split("|");
                 const producto = catalogo[productId];
+                const orden = ordenes[orderId];
 
-                if (producto && orderId) {
+                if (producto && orden && orden.productId === productId && !pagosProcesados.has(String(data.id))) {
                     // Marcar orden como pagada
-                    if (ordenes[orderId]) {
-                        ordenes[orderId].status = "approved";
+                    if (orden.status !== "approved") {
+                        orden.status = "approved";
                     }
 
                     // Generar token de descarga (válido por 48 horas)
-                    const token = crypto.randomBytes(32).toString("hex");
-                    tokens[token] = {
-                        productId: productId,
-                        orderId: orderId,
-                        createdAt: Date.now(),
-                        used: false
-                    };
+                    let token = orden.token;
+                    if (!token) {
+                        token = crypto.randomBytes(32).toString("hex");
+                        orden.token = token;
+                        tokens[token] = {
+                            productId: productId,
+                            orderId: orderId,
+                            createdAt: Date.now(),
+                            used: false,
+                            downloading: false
+                        };
+                    }
 
                     // Enviar email con el link de descarga
                     const emailCliente = pago.payer && pago.payer.email ? pago.payer.email : null;
@@ -130,6 +151,8 @@ app.post("/webhooks/mercadopago", async function(req, res) {
                             `
                         });
                     }
+
+                    pagosProcesados.add(String(data.id));
                 }
             }
         }
@@ -143,6 +166,8 @@ app.post("/webhooks/mercadopago", async function(req, res) {
 
 // Endpoint de descarga
 app.get("/descargar", async function(req, res) {
+    let info;
+
     try {
         const token = req.query.token;
 
@@ -150,10 +175,10 @@ app.get("/descargar", async function(req, res) {
             return res.status(401).send("Token inválido o expirado");
         }
 
-        const info = tokens[token];
+        info = tokens[token];
 
         // Verificar si el token ya fue usado
-        if (info.used) {
+        if (info.used || info.downloading) {
             return res.status(401).send("Este link ya fue utilizado");
         }
 
@@ -169,6 +194,8 @@ app.get("/descargar", async function(req, res) {
             return res.status(404).send("Producto no encontrado");
         }
 
+        info.downloading = true;
+
         // Descargar el PDF desde Supabase
         const { data, error } = await supabase.storage
             .from("manuales")
@@ -181,12 +208,16 @@ app.get("/descargar", async function(req, res) {
 
         // Marcar el token como usado
         info.used = true;
+        info.downloading = false;
 
         // Enviar el PDF al cliente
         res.setHeader("Content-Type", "application/pdf");
         res.setHeader("Content-Disposition", `attachment; filename="${producto.archivo}"`);
         res.send(Buffer.from(await data.arrayBuffer()));
     } catch (error) {
+        if (info) {
+            info.downloading = false;
+        }
         console.error("Error en descarga:", error);
         res.status(500).send("Error al descargar el archivo");
     }

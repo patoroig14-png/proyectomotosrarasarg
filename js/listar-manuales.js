@@ -29,7 +29,17 @@ document.addEventListener("DOMContentLoaded", function() {
     if (contenedorManuales) {
         const manuales = motos.filter(function(moto) {
             return moto.manual;
-        }).concat(manualesAdicionales);
+        });
+
+        manualesAdicionales.forEach(function(manualAdicional) {
+            const yaExiste = manuales.some(function(moto) {
+                return moto.id === manualAdicional.id;
+            });
+
+            if (!yaExiste) {
+                manuales.push(manualAdicional);
+            }
+        });
 
         manuales.forEach(function(moto) {
                 const div = document.createElement("div");

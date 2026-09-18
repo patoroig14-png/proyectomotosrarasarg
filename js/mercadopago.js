@@ -2,10 +2,12 @@
 // MERCADO PAGO - FRONTEND
 // ============================================================
 
+const API_URL = "https://backend-misty-sky-5888.fly.dev";
+
 async function crearLinkPago(moto) {
     try {
 
-        const respuesta = await fetch("http://localhost:3000/crear-pago", {
+        const respuesta = await fetch(`${API_URL}/crear-pago`, {
             method: "POST",
 
             headers: {
