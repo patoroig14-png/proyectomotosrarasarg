@@ -18,5 +18,8 @@
     "express": "^5.2.1",
     "mercadopago": "^3.6.1",
     "nodemailer": "^10.0.10"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.7.10"
   }
 }
