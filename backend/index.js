@@ -66,6 +66,6 @@ app.post("/crear-pago", async function(req, res) {
     }
 });
 
-app.listen(PUERTO, function() {
-    console.log("Servidor corriendo en http://localhost:" + PUERTO);
+app.listen(PUERTO, "0.0.0.0", function() {
+    console.log("Servidor corriendo en el puerto " + PUERTO);
 });
