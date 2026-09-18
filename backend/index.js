@@ -59,7 +59,7 @@ app.post("/crear-pago", async function(req, res) {
         console.log("sandbox_init_point:", resultado.sandbox_init_point);
 
         // Devolvemos el sandbox_init_point (es el que funcionó)
-        res.json({ init_point: resultado.sandbox_init_point });
+      res.json({ init_point: resultado.init_point });
     } catch (error) {
         console.error("Error al crear pago:", error);
         res.status(500).json({ error: "Error al crear el pago" });
